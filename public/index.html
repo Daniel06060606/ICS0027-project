@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Secure Password Manager</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Secure Password Manager</h1>
+    <p>Save passwords and small files.</p>
+    <p id="message" role="status" aria-live="polite"></p>
+
+    <section id="auth">
+      <h2>Log in or register</h2>
+      <form id="auth-form">
+        <label for="auth-username">Username</label>
+        <input id="auth-username" name="username" autocomplete="username" minlength="3" maxlength="50" pattern="[a-zA-Z0-9_]{3,50}" required>
+        <label for="master-password">Master password</label>
+        <input id="master-password" name="password" type="password" autocomplete="current-password" minlength="12" maxlength="128" required>
+        <p class="hint">Use 3–50 letters, numbers or underscores for your username and 12–128 characters for your master password. There is no password recovery.</p>
+        <button type="submit" value="login">Log in</button>
+        <button type="submit" value="register" class="secondary">Register</button>
+      </form>
+    </section>
+
+    <div id="vault" hidden>
+      <section class="account">
+        <p>Logged in as <strong id="current-user"></strong></p>
+        <button id="logout" type="button" class="secondary">Log out</button>
+      </section>
+
+      <section>
+        <h2 id="entry-heading">Add a password</h2>
+        <form id="entry-form">
+          <label for="website">Website or service</label>
+          <input id="website" maxlength="100" required>
+          <label for="entry-username">Username</label>
+          <input id="entry-username" maxlength="100" autocomplete="off" required>
+          <label for="entry-password">Password</label>
+          <input id="entry-password" type="password" maxlength="256" autocomplete="new-password" required>
+          <button type="submit">Save password</button>
+          <button id="cancel-edit" type="button" class="secondary" hidden>Cancel edit</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Saved passwords</h2>
+        <p id="empty-entries">No passwords saved yet.</p>
+        <div class="table-wrap">
+          <table id="entries-table" hidden>
+            <thead><tr><th>Website</th><th>Username</th><th>Password</th><th>Actions</th></tr></thead>
+            <tbody id="entries"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>Files</h2>
+        <p class="hint">Files are encrypted on the server before storage. Downloading decrypts the original file. Maximum size: 1 MiB.</p>
+        <form id="file-form">
+          <label for="file">Choose a file</label>
+          <input id="file" type="file" required>
+          <button type="submit">Upload and encrypt</button>
+        </form>
+        <p id="empty-files">No files uploaded yet.</p>
+        <ul id="files"></ul>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

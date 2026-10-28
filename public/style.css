@@ -1,0 +1,28 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #f3f4f6; color: #222; font-family: Arial, sans-serif; line-height: 1.5; }
+main { max-width: 950px; margin: 35px auto; padding: 0 20px; }
+h1 { font-size: 28px; margin-bottom: 4px; }
+h2 { font-size: 20px; margin-top: 0; }
+section { padding: 22px; margin: 20px 0; border: 1px solid #ddd; border-radius: 5px; background: white; }
+form { max-width: 480px; }
+label { display: block; margin-top: 12px; }
+input { display: block; width: 100%; padding: 9px; margin: 5px 0 12px; border: 1px solid #aaa; border-radius: 3px; font: inherit; }
+button, .download { display: inline-block; padding: 8px 12px; margin: 4px 5px 4px 0; border: 1px solid #245c99; border-radius: 3px; background: #245c99; color: white; font: inherit; cursor: pointer; text-decoration: none; }
+button:hover, .download:hover { filter: brightness(.9); }
+button:disabled { opacity: .6; cursor: wait; }
+button.secondary { background: white; color: #245c99; }
+.hint { font-size: 14px; color: #555; }
+.account { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+.account p { margin: 0; }
+#message { min-height: 24px; color: #24466d; overflow-wrap: anywhere; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid #ddd; overflow-wrap: anywhere; }
+td input { width: 170px; margin: 0; }
+li { padding: 10px 0; overflow-wrap: anywhere; }
+[hidden] { display: none !important; }
+@media (max-width: 600px) {
+  main { margin-top: 20px; padding: 0 12px; }
+  section { padding: 16px; }
+  h1 { font-size: 24px; }
+}
